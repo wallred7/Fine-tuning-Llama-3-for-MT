@@ -1,0 +1,10 @@
+# ignore data files
+source/
+reference/
+output/
+
+# ignore caches
+/__pycache__
+
+# ignore models due to size
+/models
