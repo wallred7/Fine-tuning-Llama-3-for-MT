@@ -1,7 +1,6 @@
 import os
 import json
 import random
-import argparse
 from pprint import pprint
 import pandas as pd
 import torch
@@ -12,8 +11,50 @@ from transformers import (AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfi
 from peft import (AutoPeftModelForCausalLM, LoraConfig, get_peft_model,
                   prepare_model_for_kbit_training)
 from trl import SFTTrainer
+from config.config import settings
 
-home = os.path.expanduser("~")
+
+
+def train(train_file, eval_file, target_lang, num_train_records, full=False):
+
+    if full:
+        source_train_file = train_file.rsplit('.', 1)[0] + '_' + train_file.rsplit('.', 1)[1] + '.en'
+        source_eval_file = eval_file.rsplit('.', 1)[0] + '_' + eval_file.rsplit('.', 1)[1] + '.en'
+    else:
+        source_train_file = train_file.rsplit('.', 1)[0] + '.en' 
+        source_eval_file = eval_file.rsplit('.', 1)[0] + '.en'
+
+    target_train_sentences, target_eval_sentences = load_data(train_file, eval_file)
+    source_train_sentences, source_eval_sentences = load_data(source_train_file, source_eval_file)
+
+    source_lang = "English"
+    target_lang = target_lang
+
+    prompts = create_prompt(source_lang, target_lang, source_train_sentences, target_train_sentences)
+    eval_prompts = create_prompt(source_lang, target_lang, source_eval_sentences, target_eval_sentences)
+
+    print(f"Number of prompts: {len(prompts)}")
+    for prompt in prompts[40:45]:
+        print(prompt + "\n\n")
+
+    model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+    model_path = "/home/support/llm/Meta-Llama-3-8B-Instruct/"
+
+    model, tokenizer = load_model_and_tokenizer(model_path)
+    print("Tokenizer and model loaded successfully.")
+
+    dataset = prepare_dataset(prompts, eval_prompts, num_train_records)
+
+    print(dataset)
+
+    model_output_name = f"llama-3-8B-{target_lang}-{num_train_records}" #TODO: maybe include the grid search or select parameters
+    output_directory = os.path.join(settings.fine_tuned_path, model_output_name)
+    os.makedirs(output_directory, exist_ok=True)
+
+    train_model(model, tokenizer, dataset, output_directory)
+
+    return output_directory
+
 
 def load_data(train_file, eval_file):
     train_file = os.path.join(home, train_file)
@@ -145,53 +186,3 @@ def train_model(model, tokenizer, dataset, output_directory):
     print("Experiment Report:")
     print(json.dumps(report, indent=2))
 
-
-def main(train_file, eval_file, target_lang, num_train_records, full):
-
-    if full:
-        source_train_file = train_file.rsplit('.', 1)[0] + '_' + train_file.rsplit('.', 1)[1] + '.en'
-        source_eval_file = eval_file.rsplit('.', 1)[0] + '_' + eval_file.rsplit('.', 1)[1] + '.en'
-    else:
-        source_train_file = train_file.rsplit('.', 1)[0] + '.en' 
-        source_eval_file = eval_file.rsplit('.', 1)[0] + '.en'
-
-    target_train_sentences, target_eval_sentences = load_data(train_file, eval_file)
-    source_train_sentences, source_eval_sentences = load_data(source_train_file, source_eval_file)
-
-    source_lang = "English"
-    target_lang = target_lang
-
-    prompts = create_prompt(source_lang, target_lang, source_train_sentences, target_train_sentences)
-    eval_prompts = create_prompt(source_lang, target_lang, source_eval_sentences, target_eval_sentences)
-
-    print(f"Number of prompts: {len(prompts)}")
-    for prompt in prompts[40:45]:
-        print(prompt + "\n\n")
-
-    model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-    model_path = "/home/support/llm/Meta-Llama-3-8B-Instruct/"
-
-    model, tokenizer = load_model_and_tokenizer(model_path)
-    print("Tokenizer and model loaded successfully.")
-
-    dataset = prepare_dataset(prompts, eval_prompts, num_train_records)
-
-    print(dataset)
-
-    output_directory = os.path.join(home, '/spinning/ivieira/models/fine_tuned_models')
-    model_output_name = f"llama-3-8B-{target_lang}-{num_train_records}-{full}"
-    output_directory = os.path.join(output_directory, model_output_name)
-    os.makedirs(output_directory, exist_ok=True)
-
-    train_model(model, tokenizer, dataset, output_directory)
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Prepare and train a translation model.")
-    parser.add_argument('--full', type=str, required=True, help='full or not full')
-    parser.add_argument('--train_file', type=str, required=True, help='Path to the source training file')
-    parser.add_argument('--eval_file', type=str, required=True, help='Path to the target training file')
-    parser.add_argument('--target_lang', type=str, required=True, help='Target language')
-    parser.add_argument('--num_train_records', type=int, help='Number of records in the training dataset')
-
-    args = parser.parse_args()
-    main(args.train_file, args.eval_file, args.target_lang, args.num_train_records, args.full)

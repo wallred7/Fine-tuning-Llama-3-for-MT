@@ -7,11 +7,11 @@ from model.collection import load_test_datasets, load_translations
 from config.config import settings
 
 
-def evaluate_output():
+def evaluate_output(output_file):
     # load translations & print samples
     source_sentences = load_translations(settings.source_data_path)
     reference_sentences = load_translations(settings.reference_data_path)
-    output_sentences = load_translations(settings.output_data_path)
+    output_sentences = load_translations(output_file)#settings.output_data_path)
     print_sample_sentences(source_sentences, reference_sentences, output_sentences)
 
     check_missing_translations(source_sentences, reference_sentences)

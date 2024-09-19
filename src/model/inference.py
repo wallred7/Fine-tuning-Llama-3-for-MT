@@ -2,7 +2,6 @@ import os
 import sys
 import subprocess
 import glob
-import argparse
 
 import torch
 from torch.nn.parallel import DataParallel
@@ -12,57 +11,54 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import ctranslate2
 
 from peft import PeftModel, PeftConfig
+from model.collection import load_translations_file, create_prompt
+from config.config import settings
 
 
-def parse_arguments():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--lang", type=str, required=True, help="Language abbreviation")
-    parser.add_argument("--size", type=str, required=True, help="The number of training examples. All is -1")
-    return parser.parse_args()
+def run_inference(target_language, fine_tune_model):
+    
+    target_languages = {
+        'pt-br': 'Brazilian Portuguese',
+        'cs': 'Czech',
+        'de': 'German',
+        'fi': 'Finnish',
+        'ko': 'Korean'
+    }
+    
+    source_lang = "English"
+    target_lang = target_languages[target_language]
+    # size = settings.size.replace('\'','')
+    # dataset = 'test'
+    # ft_model = f'llama-3-8B-{target_lang}-{size}'.replace(' ','_')
 
-def setup_directories(home_dir):
-    data_dir = home_dir
-    model_dir = os.path.join(home_dir, "models")
-    ct2_model_dir = os.path.join(model_dir, "ct2_models")
-    output_dir = os.path.join(home_dir, "results")
+    source_sentences = load_translations_file(settings.source_data_path)
+    
+    prompts = create_prompt(source_lang, target_lang, source_sentences, llama_format=True) #TODO double check the prompt format
+    print(f'Number of prompts: {len(prompts)}')
+    for i, prompt in enumerate(prompts[:10], 1):
+        print(f'Example prompt {i}:\n{prompt}\n')
 
-    os.makedirs(model_dir, exist_ok=True)
-    os.makedirs(ct2_model_dir, exist_ok=True)
-    os.makedirs(output_dir, exist_ok=True)
+    latest_checkpoint = get_latest_checkpoint(fine_tune_model)
+    
+    fine_tune_model_path = os.path.join(fine_tune_model, f'checkpoint-{latest_checkpoint}')
+    model, tokenizer = load_peft_model(settings.adapter_path, settings.fine_tuned_path)
 
-    print("Directories created or verified.")
-    return data_dir, model_dir, ct2_model_dir, output_dir
+    generator, tokenizer = convert_model_to_ct2(model, tokenizer, settings.fine_tuned_path, settings.ctranslate_path, fine_tune_model)
+    
+    lengths = [len(new_src.split()) for new_src in source_sentences]
+    length_multiplier = 2
+    max_len = max(lengths) * length_multiplier
 
-def load_datasets(data_dir, target1):
-    source_train_file = os.path.join(data_dir, "test_dataset.en")
-    target_train_file = os.path.join(data_dir, f"test_dataset.{target1}")
+    translations = translate_batch(prompts, tokenizer, generator, max_len, "}assistant", topk=1)
+    
+    print(f"Number of translations: {len(translations)}")
+    for i, (source, translation) in enumerate(zip(source_sentences[:10], translations[:10]), 1):
+        print(f"Source {i}: {source}")
+        print(f"Translation {i}: {translation} (Length: {len(translation)})")
+    
+    translations_file_name = save_translations(translations, settings.output_data_path, target_language, fine_tune_model)
+    return translations_file_name
 
-    print(f"Loading datasets:\nSource: {source_train_file}\nTarget: {target_train_file}")
-
-    with open(source_train_file, encoding="utf-8") as source, open(target_train_file, encoding="utf-8") as target:
-        source_sentences = [sent.strip() for sent in source.readlines()]
-        target_sentences = [sent.strip() for sent in target.readlines()]
-
-    print(f"Example source sentence: {source_sentences[7]}")
-    print(f"Example target sentence: {target_sentences[7]}")
-    return source_sentences, target_sentences
-
-def create_prompt(source_lang, target_lang, new_sources, llama_format=False):
-    prompts = []
-    llama_prompt_format = '''<|begin_of_text|><|start_header_id|>system<|end_header_id|>
-
-You are a helpful AI assistant for translation from {} to {}. You MUST answer with the following JSON scheme: {{"translation": "string"}}<|eot_id|><|start_header_id|>user<|end_header_id|>
-
-{}<|eot_id|><|start_header_id|>assistant<|end_header_id|>'''
-
-    for new_src in new_sources:
-        new_src = source_lang + ": " + new_src
-        segment = new_src + "\n" + target_lang + ":"
-        if llama_format:
-            segment = llama_prompt_format.format(source_lang, target_lang, segment)
-        prompts.append(segment)
-
-    return prompts
 
 def load_peft_model(adapter_path, final_model_path):
     # Since the peft lora weights are saved seperately from the model we load them and save the merged model. 
@@ -79,18 +75,15 @@ def load_peft_model(adapter_path, final_model_path):
 
     return merged_model, tokenizer
 
-def get_latest_checkpoint(checkpoint_dir, size):
+def get_latest_checkpoint(checkpoint_dir):
     checkpoints = glob.glob(os.path.join(checkpoint_dir, 'checkpoint-*'))
     latest_checkpoint = max(checkpoints, key=lambda x: int(x.split('-')[-1])).split('-')[-1]
 
-    if target1 == 'de' and size == '-1full':
-        latest_checkpoint = '600'
-
     return latest_checkpoint
 
-def convert_model_to_ct2(model, tokenizer, save_dir, ct2_model_dir, ft_model):
+def convert_model_to_ct2(model, tokenizer, save_dir, ct2_model_dir):
     # converts the model to CTranslate2 to enable batch processing run via command 
-    ct2_save_directory = os.path.join(ct2_model_dir, f"ct2-{ft_model}-v0.1")
+    ct2_save_directory = os.path.join(ct2_model_dir, f"{settings.model_name}")
     os.makedirs(ct2_save_directory, exist_ok=True)
     print(f"Converting model to CTranslate2 format and saving to {ct2_save_directory}...")
     subprocess.run([
@@ -103,10 +96,10 @@ def convert_model_to_ct2(model, tokenizer, save_dir, ct2_model_dir, ft_model):
     print("Conversion to CTranslate2 format completed.")
 
     generator = ctranslate2.Generator(ct2_save_directory, device="cuda", compute_type="int8")
-    tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
+    tokenizer = transformers.AutoTokenizer.from_pretrained(settings.model_name)
     print("Model and tokenizer loaded.")
     print(f"Model: {ct2_save_directory}")
-    print(f"Tokenizer: {model_name}")
+    print(f"Tokenizer: {settings.model_name}")
     return generator, tokenizer
 
 def translate_batch(prompts, tokenizer, generator, max_length, end_token, topk=1):
@@ -143,9 +136,9 @@ def remove_tags_after_bracket(text):
         cleaned_text = text
     return cleaned_text
 
-def save_translations(translations, output_dir, target1, dataset, ft_model):
+def save_translations(translations, output_dir, target1, ft_model):
     # cleans and saves the translations 
-    translations_file_name = os.path.join(output_dir, f"final_{target1}_{dataset}_{ft_model}_translations.txt")
+    translations_file_name = os.path.join(output_dir, f"final_{target1}_{ft_model}_translations.txt")
     with open(translations_file_name, "w+", encoding="utf-8") as output:
         for translation in translations:
             translation = remove_tags_after_bracket(translation)
@@ -153,54 +146,4 @@ def save_translations(translations, output_dir, target1, dataset, ft_model):
             cleaned_translation = actual_translation.replace('\n', ' ')
             output.write(cleaned_translation + "\n")
     print(f"Translations saved to {translations_file_name}")
-
-if __name__ == "__main__":
-    args = parse_arguments()
-    
-    home_dir = os.path.expanduser("/spinning/ivieira")
-    data_dir, model_dir, ct2_model_dir, output_dir = setup_directories(home_dir)
-    
-    target_languages = {
-        'pt-br': 'Brazilian Portuguese',
-        'cs': 'Czech',
-        'de': 'German',
-        'fi': 'Finnish',
-        'ko': 'Korean'
-    }
-    
-    target1 = args.lang
-    source_lang = "English"
-    target_lang = target_languages[target1]
-    size = args.size.replace('\'','')
-    dataset = 'test'
-    ft_model = f'llama-3-8B-{target_lang}-{size}'.replace(' ','_')
-
-    source_sentences, target_sentences = load_datasets(data_dir, target1)
-    
-    prompts = create_prompt(source_lang, target_lang, source_sentences, llama_format=True)
-    print(f'Number of prompts: {len(prompts)}')
-    for i, prompt in enumerate(prompts[:10], 1):
-        print(f'Example prompt {i}:\n{prompt}\n')
-
-    checkpoint_dir = f'/spinning/ivieira/models/fine_tuned_models/{ft_model}/'
-    latest_checkpoint = get_latest_checkpoint(checkpoint_dir, size)
-    
-    fine_tune_model_path = os.path.join(checkpoint_dir, f'checkpoint-{latest_checkpoint}')
-    save_dir = os.path.join(model_dir, 'ct2_ft_model', ft_model)
-    model, tokenizer = load_peft_model(fine_tune_model_path, save_dir)
-
-    generator, tokenizer = convert_model_to_ct2(model, tokenizer, save_dir, ct2_model_dir, ft_model)
-    
-    lengths = [len(new_src.split()) for new_src in source_sentences]
-    length_multiplier = 2
-    max_len = max(lengths) * length_multiplier
-
-    translations = translate_batch(prompts, tokenizer, generator, max_len, "}assistant", topk=1)
-    
-    print(f"Number of translations: {len(translations)}")
-    for i, (source, translation) in enumerate(zip(source_sentences[:10], translations[:10]), 1):
-        print(f"Source {i}: {source}")
-        print(f"Translation {i}: {translation} (Length: {len(translation)})")
-        print()
-    
-    save_translations(translations, output_dir, target1, dataset, ft_model)
+    return translations_file_name
