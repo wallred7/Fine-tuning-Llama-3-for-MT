@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     reference_data_path: DirectoryPath
     output_data_path: DirectoryPath
     metric_results_path: DirectoryPath
+    comet_path: DirectoryPath
 
     # Model paths
     model_path: DirectoryPath
