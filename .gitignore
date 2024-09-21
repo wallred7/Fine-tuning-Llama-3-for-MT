@@ -1,14 +1,14 @@
-# ignore data files
-# src/data/*
-# !data/**/.gitkeep
+# ignore data files due to privacy and size
+src/data/*
 
-
-# # ignore caches
-# __pycache__/
+# keep the result files in the repo
+!src/data/evaluation/metric_results/* 
 
 # # ignore models due to size
-# src/models/*
-# !models/**/.gitkeep
+src/model/models/*
 
-/src/data/evaluation/output/*
+# Keep directory structure
 !/**/.gitkeep
+
+# ignore caches
+__pycache__/
