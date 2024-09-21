@@ -1,10 +1,14 @@
 # ignore data files
-data/*
+# src/data/*
+# !data/**/.gitkeep
+
+
+# # ignore caches
+# __pycache__/
+
+# # ignore models due to size
+# src/models/*
+# !models/**/.gitkeep
+
+output/*
 !data/**/.gitkeep
-
-# ignore caches
-__pycache__/
-
-# ignore models due to size
-models/*
-!models/**/.gitkeep
