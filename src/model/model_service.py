@@ -47,7 +47,7 @@ def _save_peft_tokenizer(tokenizer, fine_tuned_path):
     tokenizer.save_pretrained(fine_tuned_path)
     print(f"Tokenizer saved to {fine_tuned_path}")
 
-def _get_latest_checkpoint(checkpoint_dir): # This may become important later
+def get_latest_checkpoint(checkpoint_dir): # This may become important later
     checkpoints = glob.glob(os.path.join(checkpoint_dir, 'checkpoint-*'))
     latest_checkpoint = max(checkpoints, key=lambda x: int(x.split('-')[-1])).split('-')[-1]
     return latest_checkpoint

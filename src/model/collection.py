@@ -2,7 +2,7 @@ import pandas as pd
 from datasets import load_dataset
 
 
-def load_data(train_file, eval_file):
+def load_data(train_file, eval_file): ### TODO: Potential to be removed
     train_data = load_dataset('csv', data_files={'train': train_file}, split='train')
     eval_data = load_dataset('csv', data_files={'eval': eval_file}, split='eval')
     return train_data, eval_data
