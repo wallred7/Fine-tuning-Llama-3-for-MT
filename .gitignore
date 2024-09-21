@@ -12,3 +12,7 @@ src/model/models/*
 
 # ignore caches
 __pycache__/
+
+# ignore job files
+*.job
+*.out
