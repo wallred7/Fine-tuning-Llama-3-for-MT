@@ -39,6 +39,7 @@ class Settings(BaseSettings):
     max_epochs: int 
     batch_size: int
     learning_rate: float
+    end_token = str
 
     # Inference parameters
     length_multiplier: int
