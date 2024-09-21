@@ -1,8 +1,4 @@
 import os
-import sys
-import subprocess
-import glob
-
 import torch
 from torch.nn.parallel import DataParallel
 
@@ -11,11 +7,12 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import ctranslate2
 
 from peft import PeftModel, PeftConfig
-from model.collection import load_translations_file, create_prompt
+from model.collection import load_translations_file
+from model.model_service import create_prompt, prepare_inference_model
 from config.config import settings
 
 
-def run_inference(target_language, fine_tune_model):
+def run_inference(target_language, adapter_path):
     
     target_languages = {
         'pt-br': 'Brazilian Portuguese',
@@ -25,82 +22,35 @@ def run_inference(target_language, fine_tune_model):
         'ko': 'Korean'
     }
     
-    source_lang = "English"
     target_lang = target_languages[target_language]
-    # size = settings.size.replace('\'','')
-    # dataset = 'test'
-    # ft_model = f'llama-3-8B-{target_lang}-{size}'.replace(' ','_')
-
     source_sentences = load_translations_file(settings.source_data_path)
     
-    prompts = create_prompt(source_lang, target_lang, source_sentences, llama_format=True) #TODO double check the prompt format
+    prompts = create_prompt(settings.source_language, target_lang, source_sentences, llama_format=True) #TODO double check the prompt format
+    n = settings.sample_number
     print(f'Number of prompts: {len(prompts)}')
-    for i, prompt in enumerate(prompts[:10], 1):
-        print(f'Example prompt {i}:\n{prompt}\n')
-
-    latest_checkpoint = get_latest_checkpoint(fine_tune_model)
+    print(f'Example prompt {n}:\n{prompts[n]}\n')
     
-    fine_tune_model_path = os.path.join(fine_tune_model, f'checkpoint-{latest_checkpoint}')
-    model, tokenizer = load_peft_model(settings.adapter_path, settings.fine_tuned_path)
+    run_name = os.path.basename(adapter_path)
+    fine_tuned_path = os.path.join(settings.fine_tuned_path, run_name)
 
-    generator, tokenizer = convert_model_to_ct2(model, tokenizer, settings.fine_tuned_path, settings.ctranslate_path, fine_tune_model)
+    generator, tokenizer = prepare_inference_model(adapter_path, fine_tuned_path)
     
     lengths = [len(new_src.split()) for new_src in source_sentences]
-    length_multiplier = 2
+    length_multiplier = settings.length_multiplier
     max_len = max(lengths) * length_multiplier
 
-    translations = translate_batch(prompts, tokenizer, generator, max_len, "}assistant", topk=1)
+    translations = translate_batch(prompts, tokenizer, generator, max_len, "}assistant", topk=settings.topk)
     
     print(f"Number of translations: {len(translations)}")
-    for i, (source, translation) in enumerate(zip(source_sentences[:10], translations[:10]), 1):
+    for i, (source, translation) in enumerate(zip(source_sentences[n:n+5], translations[n:n+5]), 1):
         print(f"Source {i}: {source}")
         print(f"Translation {i}: {translation} (Length: {len(translation)})")
     
-    translations_file_name = save_translations(translations, settings.output_data_path, target_language, fine_tune_model)
+    cleaned_translations = clean_translation(translations)
+    output_path = os.path.join(settings.output_data_path, run_name)
+    translations_file_name = save_translations(cleaned_translations, output_path, target_language, run_name)
     return translations_file_name
 
-
-def load_peft_model(adapter_path, final_model_path):
-    # Since the peft lora weights are saved seperately from the model we load them and save the merged model. 
-    peftconfig = PeftConfig.from_pretrained(adapter_path)
-    model = AutoModelForCausalLM.from_pretrained(peftconfig.base_model_name_or_path, device_map="auto")
-    tokenizer = AutoTokenizer.from_pretrained(peftconfig.base_model_name_or_path)
-    model = PeftModel.from_pretrained(model, adapter_path)
-    print("Peft model loaded")
-
-    merged_model = model.merge_and_unload()
-    merged_model.save_pretrained(final_model_path)
-    tokenizer.save_pretrained(final_model_path)
-    print(f"Model and tokenizer saved to {final_model_path}")
-
-    return merged_model, tokenizer
-
-def get_latest_checkpoint(checkpoint_dir):
-    checkpoints = glob.glob(os.path.join(checkpoint_dir, 'checkpoint-*'))
-    latest_checkpoint = max(checkpoints, key=lambda x: int(x.split('-')[-1])).split('-')[-1]
-
-    return latest_checkpoint
-
-def convert_model_to_ct2(model, tokenizer, save_dir, ct2_model_dir):
-    # converts the model to CTranslate2 to enable batch processing run via command 
-    ct2_save_directory = os.path.join(ct2_model_dir, f"{settings.model_name}")
-    os.makedirs(ct2_save_directory, exist_ok=True)
-    print(f"Converting model to CTranslate2 format and saving to {ct2_save_directory}...")
-    subprocess.run([
-        "ct2-transformers-converter",
-        "--model", save_dir,
-        "--quantization", "int8",
-        "--output_dir", ct2_save_directory,
-        "--force"
-    ], check=True, text=True)
-    print("Conversion to CTranslate2 format completed.")
-
-    generator = ctranslate2.Generator(ct2_save_directory, device="cuda", compute_type="int8")
-    tokenizer = transformers.AutoTokenizer.from_pretrained(settings.model_name)
-    print("Model and tokenizer loaded.")
-    print(f"Model: {ct2_save_directory}")
-    print(f"Tokenizer: {settings.model_name}")
-    return generator, tokenizer
 
 def translate_batch(prompts, tokenizer, generator, max_length, end_token, topk=1):
     print("Starting batch translation...")
@@ -136,14 +86,18 @@ def remove_tags_after_bracket(text):
         cleaned_text = text
     return cleaned_text
 
-def save_translations(translations, output_dir, target1, ft_model):
+def clean_translation(translation):
+    no_tags_translation = remove_tags_after_bracket(translation)
+    no_json_translation = no_tags_translation.replace('{"translation": "', '').rstrip('"}')
+    cleaned_translation = no_json_translation.replace('\n', ' ')
+    return cleaned_translation
+
+def save_translations(translations, output_dir, target1, run_name):
     # cleans and saves the translations 
-    translations_file_name = os.path.join(output_dir, f"final_{target1}_{ft_model}_translations.txt")
+    translations_file_name = os.path.join(output_dir, f"{target1}_{run_name}_translations.txt")
     with open(translations_file_name, "w+", encoding="utf-8") as output:
         for translation in translations:
-            translation = remove_tags_after_bracket(translation)
-            actual_translation = translation.replace('{"translation": "', '').rstrip('"}')
-            cleaned_translation = actual_translation.replace('\n', ' ')
+            cleaned_translation = clean_translation(translation)
             output.write(cleaned_translation + "\n")
     print(f"Translations saved to {translations_file_name}")
     return translations_file_name
