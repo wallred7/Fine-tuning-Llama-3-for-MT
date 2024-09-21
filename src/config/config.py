@@ -31,6 +31,7 @@ class Settings(BaseSettings):
 
     # Languages
     source_language: str
+    source_lang_abrv: str
     languages: list
     lang_abrv: list
 
