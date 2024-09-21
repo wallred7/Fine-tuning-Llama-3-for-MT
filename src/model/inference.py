@@ -12,7 +12,7 @@ from model.model_service import create_prompt, prepare_inference_model
 from config.config import settings
 
 
-def run_inference(target_language, adapter_path):
+def run_inference(target_language, adapter_path, run_name):
     
     target_languages = {
         'pt-br': 'Brazilian Portuguese',
@@ -30,7 +30,6 @@ def run_inference(target_language, adapter_path):
     print(f'Number of prompts: {len(prompts)}')
     print(f'Example prompt {n}:\n{prompts[n]}\n')
     
-    run_name = os.path.basename(adapter_path)
     fine_tuned_path = os.path.join(settings.fine_tuned_path, run_name)
 
     generator, tokenizer = prepare_inference_model(adapter_path, fine_tuned_path)
