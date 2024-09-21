@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     model_path: DirectoryPath
     adapter_path: DirectoryPath
     comet_path: DirectoryPath
-    ctranslate_path: DirectoryPath
+    ctranslate2_path: DirectoryPath
     fine_tuned_path: DirectoryPath
 
     # Model Names
@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     hf_model_name: str
 
     # Languages
+    source_language: str
     languages: list
     lang_abrv: list
 
@@ -38,8 +39,14 @@ class Settings(BaseSettings):
     batch_size: int
     learning_rate: float
 
+    # Inference parameters
+    length_multiplier: int
+    top_k: int
+
     # Evaluation parameters
     num_beams: int
 
+    # Sample Number
+    sample_number: int
 
 settings = Settings()
