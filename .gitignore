@@ -1,11 +1,11 @@
 # ignore data files
-# source/
-# reference/
-# output/
-# training/
+data/*
+!data/*/.gitkeep
+!data/evaluation/metric_results/*
 
 # ignore caches
 __pycache__/
 
 # ignore models due to size
-# models/
+models/*
+!models/*/.gitkeep
