@@ -33,7 +33,7 @@ def evaluate_output(output_file):
     date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
     df.to_csv(f"{settings.metric_results_path}/result_metrics_{lang}_{size}_{date_time}.csv")
 
-def print_sample_sentences(source_sentences, reference_sentences, output_sentences, n=57):
+def print_sample_sentences(source_sentences, reference_sentences, output_sentences, n=settings.sample_number):
     print(source_sentences[n])
     print(reference_sentences[n])
     print(output_sentences[n])
