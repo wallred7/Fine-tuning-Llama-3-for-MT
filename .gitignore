@@ -10,5 +10,5 @@
 # src/models/*
 # !models/**/.gitkeep
 
-/output
+/src/data/evaluation/output/*
 !/**/.gitkeep
