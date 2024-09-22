@@ -3,6 +3,7 @@ using various metrics like BLEU, chrF++, TER, and COMET."""
 
 import os
 import sacrebleu
+import glob
 import pandas as pd
 from datetime import datetime
 from comet import download_model, load_from_checkpoint
@@ -82,10 +83,14 @@ def calculate_comet(source_sentences, reference_sentences, output_sentences):
     df = pd.DataFrame({"src": source_sentences, "mt": output_sentences, "ref": reference_sentences})
     data = df.to_dict('records')
 
-    if not os.path.exists(settings.comet_path):
-        model_path = download_model("wmt20-comet-da", saving_directory=settings.comet_path)
+    comet_path = glob.glob(settings.comet_path)[0]
 
-    model = load_from_checkpoint(settings.comet_path)
+    try:
+        comet_path = glob.glob(settings.comet_path)[0]
+        model = load_from_checkpoint(comet_path)
+    except:
+        model_path = download_model("wmt20-comet-da", saving_directory=settings.comet_path)
+        model = load_from_checkpoint(model_path)
 
     seg_scores, sys_score = model.predict(data, batch_size=128, gpus=1).values()
     comet = round(sys_score * 100, 2)
