@@ -20,7 +20,7 @@ def main():
 
         run_name = f"{lang}_{settings.model_name.replace('.','_')}"
         train_file = os.path.join(settings.training_data_path, f'train_dataset.{lang}')
-        eval_file = os.path.join(settings.reference_data_path, f'eval_dataset.{lang}') # DEV set
+        eval_file = os.path.join(settings.training_data_path, f'eval_dataset.{lang}') # DEV set
 
         fine_tuned_model = train(train_file, eval_file, lang, run_name)
         fine_tuned_model_ckpt = get_latest_checkpoint(fine_tuned_model)
