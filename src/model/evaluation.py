@@ -7,7 +7,7 @@ import glob
 import pandas as pd
 from datetime import datetime
 from comet import download_model, load_from_checkpoint
-from model.collection import load_test_datasets, load_translations
+from model.collection import load_translations
 from config.config import settings
 
 
