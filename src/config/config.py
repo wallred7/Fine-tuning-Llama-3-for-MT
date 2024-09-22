@@ -32,14 +32,14 @@ class Settings(BaseSettings):
     # Languages
     source_language: str
     source_lang_abrv: str
-    languages: list
-    lang_abrv: list
+    languages: list[str]
+    lang_abrv: list[str]
 
     # Training parameters
     max_epochs: int 
     batch_size: int
     learning_rate: float
-    end_token = str
+    end_token: str
 
     # Inference parameters
     length_multiplier: int
