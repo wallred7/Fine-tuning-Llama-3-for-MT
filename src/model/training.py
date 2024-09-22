@@ -15,13 +15,16 @@ from datetime import datetime
 
 def train(train_file, eval_file, target_language, run_name, num_train_records=-1):
 
-    source_train_file = train_file.rsplit('.', 1)[0] + f'.{settings.source_lang_abrv}' 
-    source_eval_file = eval_file.rsplit('.', 1)[0] + f'.{settings.source_lang_abrv}'
+    source_train_file = f'{target_language}_train_dataset.{settings.source_lang_abrv}'
+    source_eval_file = f'{target_language}_eval_dataset.{settings.source_lang_abrv}'
+    source_train_path = os.path.join(settings.training_data_path, source_train_file)
+    source_eval_path = os.path.join(settings.training_data_path, source_eval_file)
 
-    target_train_sentences = load_dataset('csv', data_files={'train': train_file}, split='train') # TODO: the files may need to be loaded into a list via the collection.load_data function
-    source_train_sentences = load_dataset('csv', data_files={'train': source_train_file}, split='train')
-    target_eval_sentences = load_dataset('csv', data_files={'train': eval_file}, split='train')
-    source_eval_sentences = load_dataset('csv', data_files={'train': source_eval_file}, split='train')
+
+    target_train_sentences = load_dataset('text', data_files={'train': train_file}, split='train')
+    source_train_sentences = load_dataset('text', data_files={'train': source_train_path}, split='train')
+    target_eval_sentences = load_dataset('text', data_files={'validation': eval_file}, split='validation')
+    source_eval_sentences = load_dataset('text', data_files={'validation': source_eval_path}, split='validation')
 
     source_lang = settings.source_language
 
