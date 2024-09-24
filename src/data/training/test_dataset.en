@@ -1,0 +1,1354 @@
+Version 11 / 12
+September 12, 2023
+Successful exploitation of these vulnerabilities could result in arbitrary code execution.
+This update resolves
+Adobe would like to thank the following researchers for reporting these issue and for working with Adobe to help protect our customers:
+Adobe has released a security update for Adobe Acrobat and Reader for Windows and macOS.
+This update addresses a
+23.003.20284 and earlier versions
+20.005.30516 (Mac)
+20.005.30514 (Win)
+and earlier versions
+You are just a call away to solve any issues you might be facing when working with Adobe apps and services.
+Find out how you can reach us by phone.
++1-408-352-9228 (Bahamas)
++1-408-352-9228 (Barbados)
++1-408-352-9228 (Jamaica)
++1-408-352-9228 (Nicaragua)
+/ English
+01-242-1552 (English)
+Monday—Friday, 9am—5pm (GMT+1)
+00-33-1-5732-4642 (Morocco/Algeria)
+Monday—Friday, 8am—5pm WET (Morocco, Algeria)
+English/French
+Tanzania
++44-20-7365-0735 (UK)
+Nepal
+000-800-440-1751 (India)
+001-800-441-8813 (Singapore)
+Monday—Friday, 9am—5pm CTT (Singapore)
+Successful exploitation of these vulnerabilities could result in arbitrary code execution, denial of service and security feature bypass.
+Apache POI
+September 19, 2023 - Update to Dependencies
+Adobe Express is a web app that you can access from any web browser without downloading or installing an app on your desktop.
+Then, select
+How can I use a text prompt to insert an object in an image?
+How can I translate my file within the app?
+How do I generate editable templates in Adobe Express?
+With
+You can efficiently
+Select the vector art (and the raster image to mock up the art, if available), and then select
+How do I generate vector graphics using generative AI?
+How do I create mockups?
+PDF Issues
+For installation instructions, see
+Choose Help > Sign In/Sign Out.
+To solve the most common PDF-display issues, follow the steps in
+For best results,
+Learn how in the tutorial,
+Popular Acrobat forums
+Adobe Scan
+Adobe Aero is the only all in one augmented reality (AR) authoring and viewing platform that makes it easier for designers and developers to design, collaborate, and publish interactive immersive experiences in the real world.
+To learn more about Aero, see
+Yes, the Aero mobile (iOS) app is available free to
+The Aero app is available on desktop for free to
+The Aero Player (Android) app is available free to
+To learn more about Adobe the common questions about Aero, see
+You can also bring in assets from Adobe
+Aero mobile (iOS) is available on all devices that support ARKit 2 and iOS 13 or later and is recommended for use on the following devices:
+Aero desktop is available on both Windows and Mac machines.
+*Android Devices with Exynos chipsets are not supported at this time.
+Watch this quick video tutorial to learn the full
+Watch this short video tutorial to learn the full
+Select Use
+Watch this tutorial to
+Choose Insert > Timeline > Keyframe.
+Adobe Photoshop logo
+Air
+API/Developer Tasks
+Watch this tutorial to learn how to
+Get started using AIR.
+Versions & Extensions
+If you have trouble installing AIR, refer to
+For regular use,
+The last version of AIR to support desktop Linux distributions is AIR 2.6. For details, see
+To find the latest AIR Native Extensions (ANEs) created by the AIR community, visit the
+Popular AIR subforums
+Adobe Animate logo
+If this is your first time installing a Creative Cloud app, the
+Get Dimension
+If your payment for an Adobe product or service failed or was missed, you can easily reinitiate it in a few steps.
+?promoid=85665QB7&mv=other
+Edit billing and payment details
+Select the Edit billing and payment option
+Edit your billing and payment information.
+Can't find the Edit billing and payment option? Ensure you're signed in with your correct Adobe account email address.
+Add or edit your payment method
+Add a new payment method or edit the information for the current one.
+Delete and retype the card number
+Once you've updated your payment details, retry your payment and
+Verify the correct information by contacting the cardholder or your accounting department.
+View invoices for your purchased plans.
+View, download, or email your invoice
+View, download, or email the invoices to your email address.
+How to avoid future payment issues
+You can avoid future payment issues and ensure a smooth transaction process using the following best practices:
+Ensure that your payment method has enough funds to complete your purchase.
+Keep your payment details up to date to prevent any issues due to expired or invalid information.
+Learn more about these key Adobe background processes.
+Find out more about some common ones, such as Adobe Content Synchronizer and Creative Cloud Libraries Synchronizer.
+You may only sometimes notice them, but these critical background processes do their job even when you're not using any of your Adobe apps.
+Some are meant to sync your fonts or libraries to the cloud, while others install automatic app updates.
+Similarly, your Creative Cloud desktop app interacts with other background processes running on your device.
+These services (such as Creative Cloud Core Service, Adobe Content Synchronizer, and Creative Cloud Libraries Synchronizer) perform tasks like app installations, updates, and asset syncing.
+Creative Cloud UI Helper is called Adobe CEF Helper in the older Creative Cloud desktop app versions.
+The Creative Cloud UI Helper is a process that renders these components of the Creative Cloud desktop app.
+Multiple background processes with the same name run simultaneously because each monitors a separate part of the user interface.
+The Adobe Creative Cloud UI Helper is crucial for the Creative Cloud desktop app's performance.
+Adobe Crash Processor (also called AdobeCRDaemon)
+Adobe Crash Processor and Adobe CRDaemon are used interchangeably to refer to the same Adobe processes.
+It gathers and processes critical information such as your licenses, apps available in your subscription, and updates required.
+Creative Cloud Update Service
+Creative Cloud Update Service is a Windows-specific process that manages the privileges required for various actions like installing app updates and syncing fonts.
+The process ensures you're not prompted for your system password each time you try to sync fonts or install or update your apps.
+The Creative Cloud Interprocess Service handles all interactions among the various Adobe apps and processes.
+There are several instances when Adobe apps need to communicate or pass some data or information to each other.
+Only available for Windows, Adobe Notification Client is responsible for all notifications in your Creative Cloud desktop app.
+It's vital for syncing, sharing, and collaborating assets.
+The Adobe Genuine Service runs validation checks identifying whether certain installed Adobe software is genuine or non-genuine.
+The Creative Cloud Content Manager is a background process that supports Adobe Creative Cloud applications to provide dynamic content, including tutorials, stock templates, and filters.
+The CEPHTML Engine is launched when an Adobe Common Extensibility Platform (CEP) extension is loaded in any Creative Cloud app.
+It stops running when one quits the app.
+Adobe Content Synchronizer syncs data between your machine and the Creative Cloud account.
+Plus, Adobe Content Synchronizer syncs cloud documents created in applications like Adobe XD, Photoshop, and Illustrator.
+It's used for setting badges, labels, and context menus in the Creative Cloud Files folder.
+Creative Cloud Content Manager and Creative Cloud Libraries Synchronizer use the background process node.js.
+com.adobe.ARMDC.JobBlessHelper (macOS only)
+Only available for macOS, this process belongs to a component called Acrobat Refresh Manager (ARM), which is used to update Acrobat and Reader to the latest version.
+Technical Communications Suite - 2022 & 2019 release
+Adobe Captivate 12 and Adobe Captivate Classic 11.8.2
+FrameMaker (September 2022 release) and FrameMaker (2020 release)
+RoboHelp (September 2022 release) and RoboHelp (2020 release)
+(2023 release) and ColdFusion (2021 release)
+For example, for Adobe Captivate, the currently supported versions are Captivate and Captivate Classic.
+Photoshop Elements 2024 and 2023
+Premiere Elements 2024 and 2023
+Download Photoshop on your desktop, iPad, and web and find tutorials to get up and running.
+If this is your first time installing a Creative Cloud app, Creative Cloud app, the
+Get Photoshop on the desktop
+You already have access to Photoshop on the iPad if you're a Creative Cloud subscriber.
+Get Photoshop on the iPad
+Try Photoshop on the web
+System requirements for Photoshop on the desktop
+System requirements for Photoshop on the iPad
+System requirements for Photoshop on the web
+Photoshop on the desktop
+Get to know the workspace of Photoshop on the desktop
+Introduction to the workspace
+Generative Fill for reimagining your original image
+Generative Fill
+Generative Expand for exploring beyond your image canvas
+Generative Expand
+Photoshop on the web
+Introduction to Photoshop on the web
+Generative AI in Photoshop on the web
+Generative AI
+Basic editing concepts in Photoshop on the web
+Basic editing concepts
+Quick Actions in Photoshop on the web
+Quick Actions
+Insert or replace objects in an image with Generative fill
+Generate an image from text using generative AI
+Generate text effects using generative AI
+Translate files and templates
+Creative Cloud for individual single app plans now include Generative Credits, Adobe Express, and Adobe Firefly:
+Creative Cloud for individual All Apps plan now includes Generative Credits, Adobe Express, and Adobe Firefly:
+If you are a teams or enterprise member, visit the
+October 10, 2023
+Successful exploitation could lead to arbitrary code execution, privilege escalation, arbitrary file system read, security feature bypass and application denial-of-service.
+2.4.7-beta1 and earlier
+2.4.7-beta2 for 2.4.7-beta1 and earlier
+Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') (
+October 10, 2023
+12.0.4 and earlier versions
+13.0.3 and earlier versions
+Understand Adobe's Creative Cloud support policy and make informed choices before installing Creative Cloud apps and services.
+The Creative Cloud support policy outlines the scope of support for the
+Users in various roles can review the policy to ascertain the supported
+group_74_2x
+group_75_2x
+group_76_2x
+App versions
+For example app version
+Major versions are expressed as follows:
+For example, if the latest available version of an app is
+LTS may be designated as version 22.4.
+To view a list of major and previous versions of Creative Cloud apps, see
+Adobe provides the following types of support services for Creative Cloud apps:
+Feature updates
+group_80_2x
+Feature updates include new features and changes to existing features.
+group_85_2x
+A bug fix is a correction to a bug or glitch in the product.
+group_84_2x
+OS compatibility
+group_83_2x
+Adobe provides compatibility support for the latest version of its apps with these operating systems:
+Browser support
+group_82_2x
+Adobe's web-based services are supported on the latest version of the following browsers:
+group_81_2x
+Contact Adobe Customer Care for help with products or to report an issue.
+Adobe has the right to modify and discontinue its apps and the support for its apps, at any time, at Adobe's sole discretion.
+Customers can download this version from:
+OS Compatibility
+Adobe Creative Cloud for teams plans support the latest version and the immediately preceding version of the apps.
+Creative Cloud for enterprise plans support the latest version and the immediately preceding version of the apps.
+Adobe also supports a designated
+Long Term Supported version (LTS)
+Customers can download the
+If you currently have access to such older app versions, you may retain the packages or store the installers for future (unsupported) use.
+LTS versions
+They can use this added time to perform testing and due diligence before upgrading to the latest versions.
+Long Term Supported Versions
+App
+LTS version (Up to Oct 2024)
+LTS versions of Photoshop are also available for Creative Cloud for teams and Creative Cloud for individuals customers.
+These apps and services are updated frequently to add more features and to maintain compatibility with Creative Cloud web services.
+An LTS version is not available for 3D apps, such as Dimension and Substance.
+Yes, the Creative Cloud Support policy impacts customers globally.
+If you don't upgrade to a supported version, Adobe can only provide best effort support for your version.
+Assisted support may also be limited.
+Continuing to deploy older, unsupported versions of Creative Cloud will exclude customers from third-party claim coverage according to their contract with Adobe.
+Other than the following, there aren't any exceptions.
+All version numbers listed are as they appear in the Admin Console, Creative Cloud Packager, and Creative Cloud desktop app.
+Notice of these changes is as follows:
+Nov 10, 2020: Support page updated, introducing the
+Dec 1, 2020: Creative Cloud Enterprise IT Admins receive email notice of key updates.
+Dec 1, 2020 – Feb 4, 2021: LTS notification banner appears on the Packages tab inside the Admin Console.
+Upgrade to the latest and supported versions of Creative Cloud apps as soon as possible.
+All other assisted support will only be provided to assist with uninstalling unsupported versions or upgrading to supported versions.
+If your users have self-service access to Creative Cloud through the Creative Cloud desktop app, you should encourage them to upgrade their software.
+If you package and deploy products to your users, go to the
+Adobe recommends that you
+Installed apps are not automatically removed.
+The guidance mentioned in the policy applies to you.
+Is this a global policy?
+Will Adobe continue to support customers who are using unsupported versions?
+What are the differences between the supported and unsupported versions?
+As an admin, what actions should I take to upgrade my users to supported versions?
+Will it automatically be removed?
+How does the policy impact me?
+Are products I purchased under a perpetual license impacted?
+Who can I contact for more information?
+Enterprise Support Programs
+How do I remove objects from an image using Generative fill?
+How do I generate text effects using Generative AI?
+How do I insert or replace an object using Generative fill?
+Adobe Commerce 2.4.6-p2, 2.4.5-p4, 2.4.4-p5, 2.4.7-beta1 and earlier
+Releases 2024 and 2023
+Create your first project
+Audio & Video
+Advanced Content
+Installer Troubleshooting
+Users are encouraged to
+From inside your Adobe Connect meeting room, choose Meeting > Manage Access and Entry, and then choose one of the options from the submenu.
+How can I determine the capacity of my room?
+For more details on licensing, view
+Choose Pods > Video Telephony, and then click Open Stream.
+Or, choose
+Presenter logo
+Captivate Prime logo
+Photoshop Elements 2022 and earlier
+Premiere Elements 2022 and earlier
+If this is your first time installing a Creative Cloud app, the
+Learn more about the Creative Cloud desktop app
+Did you verify if your credit card has been activated?
+If your credit card isn't activated, you can activate your credit card by following your provider's guidelines.
+Learn how to handle the Preferences folder read-only error in Premiere Pro and After Effects.
+Manually set the
+Perform this procedure once for each of the following folders:
+The Hidden items option selected from the View dropdown menu.
+Display the hidden items in the folder by selecting the Hidden items option.
+Premissions for Adobe Premiere Pro dialog box with Deny unchecked under the Permissions for Users section.
+An example that shows how you can enable permissions for Premiere Pro by unchecking Deny checkboxes.
+Open a new
+Select the  folder, and press
+The user account under Sharing & Permissions has Read & Write specified under the Privilege column.
+Check if the user account under Sharing & Permissions has Read & Write specified under the Privilege column.
+a. Select the
+b. Provide your user credentials when prompted.
+c. Select the
+d. Select your user account and choose
+e. Change the
+f. Select the
+If your user account is already listed but set to
+For After Effects, repeat steps
+Record and Import Audio
+Fix Audio
+Follow the steps in this article to learn how to
+Watch this video to learn how to
+Watch this tutorial and explore ways to
+Try the tips in this article to
+Select the clips and choose Clip > Match Clip Volume.
+Learn how in this video tutorial on
+Follow this video series to learn how to
+Learn how in this video,
+Follow the easy steps in this article to learn how to
+Learn how in this tutorial,
+Follow this tutorial to learn how to
+Popular Audition subforums
+Adobe After Effects logo
+Illustraor on the web (beta) community forum
+Download, Install, Update
+But, to take advantage of the latest security updates,
+For help, see one of these troubleshooting articles for
+Get to the root of the problem in this article,
+You're viewing help content for version:
+Lightroom for Mobile
+Follow the steps in this GPU troubleshooting FAQ if Lightroom
+Read this article to learn how to
+Follow this short tutorial to learn how to
+HDR merge lets you
+Or, see this getting started article on
+Find answers to common questions in this
+Adobe Lightroom Mobile
+Adobe Photoshop Mix
+I If this is your first time installing a Creative Cloud app, the
+To see the model number of your device within Fresco, go to Settings > General > About.
+To learn more about the supported devices and its specifications, see
+Its range of Sensei-powered watercolor and oil brushes—we call them live brushes— is something that anyone who is passionate about drawing will love and find valuable.
+For sharing artwork between Adobe Fresco and other Adobe products, see
+You can also work seamlessly across Photoshop on desktop, Photoshop on iPad, and Fresco using
+For a complete list of Q&A on livestreaming, read this Behance
+For more information and workaround, see
+Adobe Illustrator logo
+Work with Files
+Plug-ins & Extensions
+Beginning with the October 2017 release of Bridge, a new Output workspace has been introduced to generate PDF contact sheet natively in Bridge.
+If you're using Bridge 2017 or earlier, you can
+To check your current Bridge version, choose Help > About Bridge from the menu bar.
+See Language versions available for Photoshop for a full list of languages supported by Photoshop.
+Try the solutions in this troubleshooting guide to
+If you are on a Mac and
+Learn how to download previous versions of Photoshop directly from the Creative Cloud desktop app.
+Install Technical Communication Suite.
+See the pages for
+sign in with an Adobe ID and password to download a trial.
+If you have problems with the trial download, see this
+You can cancel your subscription from your
+Popular related forums
+Common Questions
+Techniques & Compatibility
+It's also possible to create filters with Adobe Substance 3D Designer.
+If you don't find an answer there, you can ask the community and the development team in
+Modeler's community and development team are also active on the official
+Yes, Modeler has support for pen and drawing tablets.
+You're viewing help content for version:
+To learn about how you can organize your photos in Lightroom, see
+To learn how to save your photos to a computer, hard drive, or Flash drive and share them on Facebook, see
+A workaround for this issue is available in the
+You can also follow these
+You can buy FrameMaker through the online
+You can Sign in to Learning Manager using your Adobe id and start your trial.
+Use this
+How do I get a trial of Adobe Learning Manager?
+How do I cancel my subscription of Adobe Learning Manager?
+As a user of Adobe Learning Manager, your first point of contact is the Learning Management Administrator of your organization.
+For information on the recommended approach to set up and configure Adobe Learning Manager, see the
+As a learner you can use the
+If you are a manager, use the
+For information on getting started as an Author, see
+What are the best practices to set up Adobe Learning Manager?
+How do I get started as a learner in Adobe Learning Manager?
+How do I get started as a manager in Adobe Learning Manager?
+How do I get started as an instructor in Adobe Learning Manager?
+Adobe Captivate logo
+Export Video
+In Premiere Pro, click
+Watch this short video tutorial to learn more on
+If you have a Creative Cloud subscription that includes access to Media Encoder,
+For detailed information, see the
+Creative Cloud for Education | Learn & Support
+System Administrators can add users and provision them to the free Adobe Express for K12 offer as well as Adobe Creative Cloud All Apps using
+If you have purchased an individual Creative Cloud for students and teachers plan, see how you can
+Deploy Licenses
+Manage Adobe applications, licenses,
+Integrate partner applications like Clever, ClassLink, Canvas, and Blackboard with Adobe Express or Creative Cloud.
+For teaching resources, professional learning,
+Export & Print
+You'll need to sign in with your email address and password to complete the download.
+You can use Auto Style to style your text with a single click.
+Powered by Adobe Sensei, our built-in Style Packs can read and apply different styles to different sections of your text.
+For more information on how to share for review, see
+Walk through the tasks in this
+Follow the solutions in this troubleshooting article if InDesign hangs when you try to export and you get a message saying that
+Luckily, it's easy to
+This troubleshooting guide can help you isolate and
+Adobe Comp
+Installation Help
+For more information on Flash Player and Google Chrome, see
+Adobe recommends that you have the most updated version of Flash Player.
+However, you can install a previous version of Flash Player by following the instructions in
+Check the version of Flash Player on your system by doing this simple test here:
+For more information on Flash Player with IE on Windows 10, see
+If your Flash Player has crashed and would like some help, see
+Adobe AIR logo
+iOS: Download from
+Android: Download from the
+For a list of supported devices, see
+For solutions to a "failed to install" error, see
+To resolve other download, installation, and update issues, see this
+Follow these instructions to
+Adobe Fonts logo
+Files & Compatibility
+How do I download and install Substance 3D Sampler?
+Why won't Substance 3D Sampler install?
+Can I download a trial copy of Substance 3D Sampler?
+Can I install Substance 3D Sampler on another computer?
+First create a new project using one of the methods outlined
+With the project open, you can create a new environment light from the Project panel.
+Click the add icon to the right of the Environment lights header.
+What is Substance 3D Sampler for?
+How can I make a material from an image?
+How can I create an environment light?
+Why are the Image to Material (AI Powered) and Delighter filters missing from the filter list?
+How can I get more filters to use in Substance 3D Sampler?
+Check Sampler's
+Will Substance 3D Sampler work on my system?
+How can I export assets for use in other software?
+Something is wrong with Substance 3D Sampler, how can I fix it?
+For a list of the supported cameras, see Cameras supported by Camera Raw.
+To see assigned trigger keys, select the puppet and open the Triggers panel (choose Window > Triggers) if the puppet uses the Triggers behavior, or choose Puppet > Show Obsolete Trigger Keys if the puppet uses the obsolete Keyboard Triggers behavior.
+For answers to other installation questions, see the
+For information on installing and configuring LeanPrint, see
+For help installing the LeanPrint client, see
+For a description of the error codes and possible solutions, see
+To place an order for a full version of LeanPrint Enterprise Edition, contact us at
+Admin resources:
+Cloud Services
+Education, Team, & Enterprise
+From there, select the Security & Privacy tab, and then select Change under Password.
+To see how much storage you have, see
+Learn how in this brief tutorial,
+For help administering Creative Cloud for teams, see
+With the June 2016 release,
+If your app shows a spinning wheel or a blank white screen,
+Illustrator Draw logo
+Adobe Illustrator Draw
+Adobe Photoshop Sketch
+Adobe Audition logo
+What is Substance 3D Designer for?
+Why can't I connect two nodes to each other?
+Minimum and recommended system requirements are available
+To learn more, see this
+Will Substance 3D Designer work on my system?
+How can I export my creations for use in other applications?
+How can I import materials and other resources?
+How can I make my materials work faster in other applications?
+How can I expose parameters in other applications?
+How can I organize my graph?
+How does the flood fill node work?
+Adobe Robohelp Learn & Support
+To see the list of bug fixes, see
+If it has been less than six months since the subscription ended, click the Renew button displayed with the alert to enter the information required to restart your subscription.
+How can I manage my licenses if they are allocated through my organization?
+RoboHelp Server logo
+Can I install Substance 3D Stager on another computer?
+For a full rundown of the features of each,
+See here a short list of the most common file formats:
+Models: FBX, OBJ, CAD, USDZ/C, GLF/GLB
+Materials: SBSAR, MDL (Adobe Standard Material only), MTL
+Lights: EXR, HDRI, SIBL
+Images: PSD, AI, JPG, PNG, EXR, TGA
+What can I do with Substance 3D Stager?
+How is Adobe Substance 3D Stager different from Adobe Dimension?
+What functionality does Substance 3D Stager support?
+What file formats does Substance 3D Stager support?
+What hardware does Substance 3D Stager need?
+Poor UVs are generally the cause of these issues.
+This will solve some issues, such as overlapping and missing UVs.
+If generating UVs does not solve the issue, it may have to be fixed in a dedicated modeling or texturing application.
+Other AMD GPUs should work correctly.
+Select the object.
+Use the menu Camera > Frame Selection to move the camera to the objects position.
+What can I do if Stager doesn’t show anything in the viewport?
+Why do my materials, textures, or decals have stretching or issues?
+How can I improve low resolution, blurry, or pixelated decals, images, and textures?
+I'm using an AMD Radeon RX 6000 series GPU and Stager isn't working correctly, how can I fix this?
+Why can't I see the model I imported?
+In the Creative Cloud app, go to
+To know about the supported types of 3D models and some best practices for creating content for Dimension, see
+Adobe is working alongside NVidia and other partners to create a standard material template called the Adobe Standard Material.
+The Adobe Standard Material simplifies and abstracts some of the more complex and technical aspects of features available in MDL to present an easier and more intuitive interface for non-3D-familiar users.
+To know what’s new in the latest releases, see the
+Can I install Substance 3D Painter on another computer?
+Substance 3D Painter has all the tools you need to texture your 3D assets, from advanced brushes to Smart Materials that automatically adapt to your model.
+Substance 3D Painter is designed to make painting and texturing 3D models quick and easy, while Photoshop is focused on creating 2D images.
+You can start by checking the
+In Substance 3D Painter you can find a few assets you can start working with, so you can get started using the software quickly.
+You can also create your own 3D assets in other software tools and import them in Painter.
+What is Adobe Substance 3D Painter for?
+What is the difference between Photoshop and Substance 3D Painter?
+Baking in Painter
+You can run multiple instances of Substance 3D Painter if you need to.
+Will Painter work on my system?
+How can I bake mesh maps?
+How can I export my textures to use in other 3D software?
+Can I install several instances of Substance 3D Painter with different versions of Painter at the same time?
+CSS Designer lets you
+Watch this video tutorial to learn how to
+You can get more
+This video tutorial
+This article provides
+Learn more in this article on
+Also, try the solutions in this
+Follow the solutions in this
+Add more storage
+Select Add more storage in the upgrade cloud storage section
+Choose your preferred storage quota from the drop-down.
+Select storage quota
+According to your prefrence select storage quota
+Review all details about your upgrade,
+Resolve launch issues with Adobe video apps on macOS Sonoma
+If you have upgraded to macOS Sonoma (version 14) and your video apps fail to launch, learn how you can fix it.
+Adobe video apps fail to launch on macOS Sonoma (version 14), and the following error message is displayed:
+You should move it to the Trash.
+Error message received on macOS Sonoma (version 14).
+While Sonoma users are more likely to get this error, it may also show up if you’re using a previous version of macOS.
+The issue occurs due to
+It's still possible to get this error on previous versions of macOS.
+Some third-party plugin and extension developers install components like presets and other settings into our application package, triggering Apple’s security mechanism and preventing the app from launching.
+When you try to reinstall again, the offending files remain there, and the problem continues after reinstalling.
+install the app without third-party components
+Reinstall the application from the Creative Cloud Desktop app in the usual way.
+Do not install offending third party software.
+Use the app with third-party components
+The inability to use certain third-party tools isn't ideal.
+We are also working with third-party developers to inform them of this issue.
+Exercise due diligence and install applications and utilities only from reputable, trusted developers.
+displays, go to
+Be sure to check for the alert mentioning the Adobe app in question and select
+Alert in the Privacy & Security section of your macOS device showing that the app was blocked from use.
+Select alert mentioning Open Anyway in Privacy & Security to open damaged file.
+Security hotfix available for RoboHelp Server
+November 14,
+This update resolves vulnerabilities rated
+RHS 11.4 and earlier versions
+Anonymous working with Trend Micro Zero Day Initiative
+November 14, 2023
+22.0.10 and earlier versions
+13.0.4 and earlier versions
+14.0.0 and earlier versions
+Moderate
+November 14, 2023
+Adobe has released updates for Adobe Premiere Pro for Windows and macOS.
+24.0 and earlier versions
+23.6 and earlier versions
+This update addresses
+ID17.4.2 and earlier version.
+ID18.5 and earlier version.
+ID18.5.1
+ID19.0
+24.0.2 and earlier versions
+23.6 and earlier versions
+Adobe would like to thank the following for reporting the relevant issues and for working with Adobe to help protect our customers:
+Adobe has released a security update for Adobe FrameMaker Publishing Server.
+Successful exploitation could lead to security feature bypass.
+Version - 2022
+FrameMaker 2022 Update 1 and earlier
+Version 2022 Update 1
+Adobe has released an update for Adobe Audition for Windows and macOS.
+Adobe Audition
+23.6.1 and earlier versions
+This update addresses an
+Adobe has released an update for Adobe Media Encoder.
+24.0.2 and earlier versions
+Adobe has released security updates for ColdFusion versions 2023 and 2021.
+Update 5 and earlier versions
+Update 11 and earlier versions
+Update 6
+Update 12
+Deserialization of Untrusted Data
+Deserialization of Untrusted Data
+Improper Authentication (
+Acknowledgements:
+23.006.20360 and earlier versions
+20.005.30524 and earlier versions
+17.4.2 and earlier versions
+18.5 and earlier versions
+November 17, 2023: Solution for Version 24.0 revised to Adobe Animate 2024 from Adobe Animate 2023.
+Why can't I install FrameMaker in multiple locales on the same system?
+Uninstall FrameMaker.
+Priority and severity ratings
+Adobe Substance3D - Sampler
+Security Updates for Adobe Substance3D - Sampler
+Security Updates for Adobe Substance3D - Sampler
+Adobe Substance3D - Sampler
+Affected software versions
+Adobe Substance3D Sampler
+December 12, 2023
+Adobe has released an update for Adobe Prelude for Windows and macOS.
+This update addressed a
+Successful exploitation could lead to memory leak.
+December 12,
+Illustrator 2024
+28.0 and earlier versions
+27.9 and earlier versions
+Buffer Overflow (
+December 12, 2023
+Heap-based Buffer Overflow (
+Cross-site Scripting (Stored XSS) (
+December 12, 2023
+ID17.4.2 and earlier version
+ID19.0 and earlier version.
+ID19.1
+Adobe has released an update for Adobe Substance 3D Sampler.
+Adobe Substance 3D Sampler
+4.2.1 and earlier versions
+All
+anonymous
+24.0.3 and earlier versions
+23.6.0 and earlier versions
+Application denial-of-service
+Spanish / English
+Premiere Pro version 13.1.1 or later crashes on launch when Controlled Folder Access is enabled.
+When Controlled Folder Access is enabled, Premiere Pro version 13.1.1 or later crashes on launch, reporting the following error message.
+artboard_3
+artboard_4
+artboard_5
+select-file
+Access exclusive discounts with your Creative Cloud membership
+Choose from a variety of members-only deals and offers from exclusive brands, including HP and Dropbox, to help streamline your creative workflow.
+Explore offers
+Adobe Illustrator Draw
+Free Creative Cloud users also receive a set number of monthly generative AI creations.
+When that monthly limit is reached, you can
+For Text to Image, Text Effects, and Generative Recolor results, hover over the image, select the
+For Generative Fill results, select
+Downloading images from Firefly web app
+Favorites are saved using your browser data, so they won't be available on another browser, in incognito mode, or if you clear your browser data.
+When you first sign in, you might need to refresh the
+If you're low on available disk space, the browser might delete your favorites.
+To access your images generated from the Text to Image and Text Effects features on other browsers and devices,
+Adobe Photoshop Fix
+InCopy Basics
+Work with Text
+Click the Galley, Story, or Layout tab at the top of the editing area to
+You can add text to an InCopy story by
+An InDesign user can
+Creative Cloud Membership Discounts
+Due to changing needs of video professionals and content creators, we are discontinuing Adobe Prelude.
+Effective September 8, 2021, Prelude will no longer be available on Adobe.com.
+Ingest & Edit Video
+Prelude & Premiere Pro Integration
+Get basic, step-by-step instructions to learn
+You can specify the amount of memory reserved for Prelude and other applications under Edit Preferences Memory.
+Yes, you can create and save a custom workspace using options on the Window menu.
+Learn the steps for
+Start by selecting the rough cut that you want to export from the Project panel.
+Get full instructions for
+Yes, you can
+Add metadata to a selected movie clip by selecting Window > Metadata.
+Get full instructions for
+Watch this quick tutorial to learn how to
+See Adobe Photoshop CS6 Help (PDF) for help and troubleshooting resources for Photoshop CS6.
+Make sure that your computer meets the system requirements for your version of Photoshop.
+We recommend that you explore a free trial of Creative Cloud.
+Watch this tutorial to learn about the
+Get an early look at the new Adobe Help Center
+Try it now
+Known & Fixed Issues
+Editing Footage
+See our fixed issues list to know
+Follow this tutorial to
+To learn other techniques, see the article
+For instructions, see this article,
+How do I split or cut clips?
+How do I easily edit and trim clips?
+How do I perform J cuts and L cuts?
+Cutting or splitting clips is one of the foundations of
+Once you have built a rough-cut sequence on the timeline, learn how you can
+To improve performance while editing, create lower-resolution clips, called
+Follow the steps in this article to learn about the
+Premiere Pro communty forum
+December 19, 2023 -
+December 15, 2023
+Adobe has released security updates for AEM Forms on JEE versions
+This dependency update resolves a
+Adobe Experience Manager (AEM) Forms on JEE
+Adobe Experience Manager (AEM) Forms on JEE
+Update Instructions
+Apache Struts
+For more information, please see:
+What is the new Adobe Express on mobile (beta)?
+Secondary Issue Reasons
+Issue Reason
+Account/User/Identity Management
+Application
+Infrastructure Change Request
+Infrastructure Incident
+Integration with other Adobe Solutions
+Licensing & Provisioning
+New Feature Request
+Fix issues while activating or reinstalling legacy Adobe apps
+Learn what to do if you encounter sign-in issues while activating or reinstalling certain versions of your non-subscription Adobe apps (such as Acrobat, Photoshop Elements, Premiere Elements, and Creative Suite 6).
+Unable to activate or reinstall legacy Adobe apps?
+Browser not supported?
+Note that the following Adobe apps no longer support the old sign-in method.
+Photoshop Elements (versions 2018 and earlier)
+Premiere Elements (versions 2018 and earlier)
+Captivate (versions 5.5 and 2017)
+eLearning Suite 2.5
+Technical Communications Suite (versions 3.0 and 3.5)
+Try signing in to your app, or go to
+Use your mobile or tablet device to scan the QR code on the sign-in screen.
+Use the QR code to sign in on your mobile device
+Use the QR code to sign in on your mobile device to reinstall or activate your non-subscription apps
+If you're unable to scan the QR code, ensure it fits your screen, your camera lens is clean, and you have proper lighting and distance.
+Enter your email address on your mobile or browser, then select
+Select sign in to reinstall or activate older Adobe apps
+Follow the onscreen instructions to complete the sign in.
+Once you're signed in from your mobile, tablet, or browser, you are automatically signed in to your app on the desktop.
+Adobe recommended browsers
+For optimal viewing and security, we recommend that you use an up-to-date version of any of the following browsers:
+If you don't use the latest version of a recommended browser, or if you use a browser that is not listed above, Adobe features may not work as you expect, or at all.
+If you're using macOS or iOS, you can enjoy Safari updates bundled with versions 14, 15, or 16.
+What are the recommended browser settings
+The following are some of the recommended browser settings for Adobe:
+Some features of Adobe.com, such as region selection and membership sign-in, require browser cookies to be enabled.
+For more information about Adobe's use of cookies, see
+Enable JavaScript
+Adobe.com uses JavaScript for many functions.
+How do I enable JavaScript on my browser?
+The way to enable JavaScript based on browser settings depends on the browser you're using.
+Scroll down to find
+Open
+Scroll down to find J
+How to troubleshoot browser issues
+Check supported browser versions.
+Check to see if your problem is related to known issues with your browser version, above.
+Clear your browser's cache.
+Clearing your browser's cache, cookies, and history may help to resolve problems.
+Try a different browser or move to a different computer.
+This may help to discern whether your issue was a problem with your browser or computer, or with Adobe.com.
+If the issue persists in several browsers, and on different computers, report your problem to
+susi authentication issue
+Follow the steps to sign in quickly and start using your non-subscription apps:
+If you have an Acrobat subscription, see
+If you have a stand-alone, non-subscription version of Acrobat, you can use the app on up to two computers.
+For legacy Adobe products
+If you encounter an error while trying to reactivate or reinstall certain legacy Adobe apps, learn how you can
+Without the activation servers, these applications display an activation or connection error when trying to verify a license.
+ColdFusion (2023 release) and ColdFusion (2021 release)
+Other desktop products (include Acrobat, Lightroom, Photoshop Elements, Premiere Elements, Adobe Substance 3D, and more)
+Adobe Substance 3D Painter
+Adobe Substance 3D Designer
+Adobe Substance 3D Sampler
+Adobe Substance 3D Modeler
+Adobe Substance 3D Stager
+Discord Platform
+Discord
+Try to launch your app.
+How to initiate Bomgar Screen Sharing on Mac & Windows
+run_bomgar
+Untitled-1
+License
+Please click
+attach
+mac_download
+run_download
+agreement
+access
+deny
+system_security
+later
+Security updates for Adobe Framemaker
+Security updates for Adobe FrameMaker Publishing Server
+February 13, 2024
+Successful exploitation could lead to arbitrary code execution, security feature bypass, and application denial-of-service.
+2.4.6-p3 and earlier
+2.4.6-p4 for 2.4.6-p3 and earlier
+February 13, 2024
+24.0.3 and earlier versions
+23.6.2 and earlier versions
+Adobe would like to thank the following researchers for reporting this issue and for working with Adobe to help protect our customers.
+Jony (jony_juice)
+Successful exploitation could lead to arbitrary code execution, application denial-of-service, and memory leak.
+23.008.20470 and earlier versions
+20.005.30539 and earlier versions
+2021.001.20149 and earlier
+versions
+9.1.1 and earlier versions
+February 13, 2024
+Version 2022.2
+What is the new Adobe Express on mobile (beta)?
+Adobe Connect Hosted Support Plans
+Find a support plan
+Adobe provides all the support you need for successful collaboration experiences with Adobe® Connect™.
+Expert support is included in your subscription price; giving you the added confidence of knowing Adobe is available at any time should you need assistance.
+Adobe also offers purchasable support options – Gold support for advanced customization and integration needs, event services to manage large meetings, and instructor‐led training to give you the knowledge and confidence to maximize your productivity.
+Use the table below to select the support option that is right for you.
+SUPPORTED TOPICS
+Program Offering
+Expert
+Gold
+24 X 7 coverage
+Adobe provides support by phone or web case submission, 24 hours a day, 7 days a week.
+Adobe provides support to meeting leaders and participants who need assistance with a meeting in progress.
+Product Features / How-To
+Adobe supports product use, including commands, menu items, and core features outlined in the User Guide and online Help.
+Interoperability / Basic
+Adobe supports telephony integration, converting and uploading presentations, meeting recordings, and support for Adobe Presenter.
+Customization & Integration
+Adobe provides support for the Connect API, integration to learning management systems, custom branding of the Connect interface and Flash video integration.
+Priority Call Handling
+Enjoy direct access to senior-level engineers and prioritized case handling.
+PRICING
+Included in the Adobe Connect subscription price
+Call for pricing info and to purchase
+Contact Adobe support
+The following contact information is for customers using Adobe Connect Hosted in North America.
+CUSTOMER SERVICE
+Get answers to nontechnical questions.
+Call Customer Service
+NEED HELP CONNECTING TO A MEETING?
+Get In‐Meeting Support
+TECHNICAL SUPPORT
+Technical Support
+For all other technical support needs such as feature usage and how to support.
+International Technical Support Phone Numbers
+NEXT STEPS
+Get help now
+Register a product
+SUPPORT PLAN DETAILS
+TERMS AND CONDITIONS
+RESOURCES
+Which Adobe products are no longer available or supported?
+Adobe product availability and support matrix
+Track
+Classic 2017
+Adobe recommends users update their software installations to the latest versions by following the instructions below.
+The latest product versions are available to end users via one of the following methods:
+Users can update their product installations manually by choosing Help > Check for Updates.
+The products will update automatically, without requiring user intervention, when updates are detected.
+The full Acrobat Reader installer can be downloaded from the
+For IT administrators (managed environments):
+Refer to the specific release note version for links to installers.
+Install updates via your preferred methodology, such as AIP-GPO, bootstrapper, SCUP/SCCM (Windows), or on macOS, Apple Remote Desktop and SSH.
+Updated Versions
+Out-of-bounds Write (
+Adobe welcomes feedback from our users and has deployed the following UserVoice sites to gather feature requests and bug reports.
+All use of UserVoice must conform to Adobe Terms of Use and Adobe Privacy Policy.
+The Adobe Support Community allows you to connect with other Adobe users and professionals to get help with existing features, functions, and workflows.
+UserVoice is a third-party platform for the customers to submit feature requests and bug reports to the customer product teams.
+How to submit useful feedback using UserVoice?
+Follow the guidelines below to provide feedback to Adobe for both seeking features and reporting errors.
+Avoid posting duplicate requests.
+Upvote a similar request submitted by another user and add your comments.
+When requesting a new feature
+It enables Adobe to categorize, evaluate, and reply to your contribution more quickly.
+Add a description that includes the user type (for example, editor, designer, photographer, and so on) and the requested feature.
+Ensure to mention any specific workflows or hardware configurations that apply.
+Attach an image or a brief video to understand the request in a better way.
+For example, "Premiere Pro crashes frequently" is insufficient.
+"Premiere Pro crashes every time I click a clip in a timeline with the effect panel open" is more useful.
+Give a detailed explanation of the desired behavior or outcome and the observed behavior or outcome.
+Mention the number of times the issue occurred.
+Specify the version of the application you're using (copy the version number from the product’s About box), along with any third-party applications that are involved.
+Give details about the system on which you're running the software.
+For example, hardware model, operating system & its version.
+Provide step-by-step instructions to replicate the issue (screenshots or a screen recording).
+If you are unable to offer exact instructions, be as detailed as possible.
+August 13, 2019
+These updates address
+These updates will address
+Adobe will be assigning the following
+2019.012.20034 and earlier versions
+2019.012.20035 and earlier versions
+2017.011.30142 and earlier versions
+2017.011.30143 and earlier versions
+2017.011.30142 and earlier versions
+Classic 2015
+2015.006.30497 and earlier versions
+2015.006.30498 and earlier versions
+Out-of-Bounds Read
+Information Disclosure
+Out-of-Bounds Write
+Command Injection
+Important
+Use After Free
+Heap Overflow
+Buffer Error
+Double Free
+Integer Overflow
+Internal IP Disclosure
+Type Confusion
+Arbitrary Code Execution
+Untrusted Pointer Dereference
+Insufficiently Robust Encryption
+Adobe would like to thank the following individuals and organizations for reporting the relevant issues and for working with Adobe to help protect our customers:
+(A.K.) Karim Zidani, Independent Security Researcher ;
+BUGFENSE Anonymous Bug Bounties
+Security updates for Adobe Acrobat and Reader
+Version XI (11.x)
+Version X (10.x)
+Version 9.x Pro Extended, Pro, and Standard
+Version 3D
+Version 8.x Professional and Standard
+Version 7.x Professional, Standard, and Elements
+Adobe Acrobat and Adobe Reader Plug-in Buffer Overflow
+XML External Entity vulnerability in Adobe Reader/Acrobat
+Adobe Reader/Acrobat invalid root page node Count
+Local file discovery in Adobe Reader/Acrobat through Internet Explorer
+Version 6.x Professional and Standard
+Buffer Overflow Vulnerability in Adobe Acrobat
+Prevent malicious media (Flash) playback
+PNG library 1.2.5 vulnerability
+eBook plug-in vulnerability with *.etd files
+ActiveX control buffer overflow
+Filename Handler Buffer Overflow
+Version 5.x Professional and Standard
+Arbitrary code execution from a malicious PDF document
+Improper validation of JavaScript in PDF files
+Version 4.x Professional and Standard
+Security vulnerabilities due to buffer overrun attacks
+Learn & Support by app
+Popular Apps
+Creativity and Design
+Aero logo
+Adobe Bridge logo
+Adobe Character Animator logo
+Adobe Dreamweaver logo
+Adobe Fireworks logo
+Adobe InCopy logo
+Adobe Media Encoder logo
+Adobe Photoshop Express logo
+Adobe Portfolio logo
+Adobe Prelude logo
+Adobe Premiere Elements logo
+Premiere Rush logo
+Adobe XD logo
+Creative Cloud logo
+Creative Cloud Market
+Adobe Medium logo
+Substance 3D Designer
+Substance 3D Painter logo
+Substance 3D Painter
+Substance 3D Sampler logo
+Substance 3D Stager
+PDF & e-signatures
+Adobe Export PDF
+eLearning
+Adobe Comp logo
+Technical Communication
+We are committed to continually adding more value to Creative Cloud.
+Our ability to align with fluctuations in currency exchange rates enables us to continually enable creativity for all and deliver great value to our customers globally.
+Starting November 1, 2023, the price of Creative Cloud and Document Cloud plans in Argentina, Brazil, Colombia, Norway, and Sweden will increase.
+Window and macOS
+Be a creative know it all.
+They’re part of your Creative Cloud membership.
+Subscribe to Adobe Status
+Adobe Illustrator for Web logo
+For customers in Argentina, Brazil, Colombia, Egypt, Japan, Norway, South Korea, Sweden, and Turkey, Adobe is making adjustments to offset fluctuations in foreign exchange rates.
+The exact price will vary by currency and country.
+Visit your
+What are the price changes for the Creative Cloud All Apps for students and teachers plans?
+You will receive an email from Adobe about changes to your Creative Cloud membership approximately 30 days before your monthly or annual renewal.
+Visit your
+For customers in Africa, Asia, and Australia, the revised pricing will be reflected starting March 5, 2024.
+Creative Cloud All Apps for students and teachers plan
+Customers in North America, Central America, South America, and Europe will see changes starting November 1, 2023; customers in Africa, Asia, and Australia will see changes starting March 5, 2024.
+Contact your reseller for additional information on pricing for countries in these regions not included below.
+Algeria
+Armenia
+Azerbaijan
+Bahrain
+Bangladesh
+Belarus
+Indonesia
+Jordan
+Kazakhstan
+Kenya
+Kuwait
+Kyrgyzstan
+Lebanon
+Macao
+Mauritius
+Moldova
+Nigeria
+Oman
+Philippines
+Qatar
+Russian Federation
+Sri Lanka
+Tajikistan
+Turkmenistan
+Ukraine
+Uzbekistan
+Vietnam
+Yemen
+You can also visit your
+To learn more about Adobe foreign exchange rate changes, visit our
+iOS: Download from App Store
+Android: Download from the Google Play Store and the Samsung Galaxy Store.
+Limited Adobe Stock functionality available in a webpage and video features.
+We’re bringing new video editing capabilities to mobile, along with many other features and the ability to work across desktop and mobile.
+This beta period is perfect for sharing your experiences and suggestions to help us build your best mobile experience.
+Browse for the technical support periods for products.
+All dates in mm/dd/
+yyyy
+Build
+General availability
+End of core support
+End of extended support
+Access Core
+Access Professional
+ADEP Data Services for Java EE
+ADEP Extension Production Print
+ADEP PDFg Capability
+Please see Knowledge Base article for PDF Generator Component
+ADEP Solution - Customer Communications
+ADEP Solution - Integrated Content Review
+ADEP Solution - Web Experience Management
+ADEP Solution - Content Repository Connector (CNCR) for the AEP release
+Advanced Form Client
+(formerly branded as XML Documentation for Adobe Experience Manager)
+Experience Manager Guides
+Barcoded Paper Forms Solution
+C - D
+Campaign
+Campaign / Neolane
+Campaign Classic
+Campaign Managed Cloud Services
+Captivate Classic
+Captivate
+Central / Central Workstation Edition / Central Pro Output Server / OS400
+Commerce
+Contact the account representative
+Comp
+iOS: 3.0.5
+Android: 1.0.209
+CQ 5.4
+CQ 5.5
+Creative Suite apps and suites
+Digital Enterprise Platform (ADEP) - LC ES2 dates apply for Content Services
+Digital Publishing Suite
+Distiller Server
+Document Security Server (all platforms)
+Document Server
+Document Server for Reader Extensions
+Drive CC
+E - F
+April 2003
+Flash Access
+2015 release
+2017 release
+2019 release
+2020 release
+2022 release
+Support Bug fixes and Security fixes for the current version (N) and Security vulnerability fixes for the previous major version (N-1).
+Summer 2020 release
+FrameMaker Publishing Server
+December 2022 release
+Support Bug fixes and Security fixes for the current version (N) and Security vulnerability fixes for the previous major version (N-1).
+G - J
+Graphics Server
+Illustrator Draw
+2.0.1 (J1)
+1.0 (FF99 2.6.2110/FormServer 1.00.2116)
+JetFrom Web Output Pak
+L - M
+Please see Knowledge Base article
+12/2017
+10/2018
+02/2019
+Macromedia ColdFusion
+Macromedia Flash Communication Server MX
+Macromedia Flex
+Media Server Extended
+Media Server Professional
+Media Server Standard
+Output Designer
+Output Manager
+Output Pak for mySAP.com
+Output Pak for SAP R/3
+Photoshop Camera
+iOS: 1.5
+Android: 1.4
+iOS: 1.5.0
+Android: 1.4.2
+Photoshop Sketch
+Premiere Clip
+iOS: 2.1.2
+iOS: 18641
+Android: 1316
+Q-Link
+ALL
+Windows and Macintosh
+Reader Extensions Server (all platforms)
+Reader XI
+RoboHelp Server 11 release
+2018 v1.1.3x
+Shockwave
+Enterprise customers will continue to be supported until the end of their contracts in 2022.
+Story CC
+1.x (HTML), 3.0 (Flex)
+1.12 (HTML), 3.0.2(Flex)
+Web Output Pak
+Web Output Pak for SAP
+Web Output Pak; using 5.6 JFMerge
+Workflow Server
+Enterprise maintenance and support policy and options
+Adobe categorizes this update with the following
+For managed environments, IT administrators can use the Admin Console to deploy Creative Cloud applications to end users.
+Refer to this
+CVE Numbers
+Out-of-bounds Read
+Heap-based Buffer Overflow
+Out-of-bounds Write
+11.0.1 and earlier versions
+11.1.3 and earlier versions
+Arbitrary code execution
+Application denial of service
+Adobe has released a security update for Adobe FrameMaker Publishing Server.
+Adobe would like to thank the following Initiative for reporting the relevant issues and for working with Adobe to help protect our customers:
+Security Updates for ColdFusion
+ColdFusion 2021
+ColdFusion 2016
+Version 11
+Version 10
+Version 8
+Version MX 7
+Version MX 6.1
+Version MX 6
+Update number
+Update 16 and earlier version
+Update 19 and earlier versions
+Priority rating
+Update 17
+Improper Access Control
+Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') (
+ColdFusion 2021 Lockdown Guide
+**;!com.sun.syndication.
+**;!org.apache.commons.beanutils.
+Apache Tomcat Application Server: edit JAVA_OPTS in the ‘Catalina.bat/sh’ file
+WebLogic Application Server:
+WildFly/EAP Application Server:
+Set the JVM flags on a JEE installation of ColdFusion, not on a standalone installation.
+Affected product versions
+Please contact
+9.4.0 and earlier versions
+Download Center
+March 12, 2024
+23.0.3 and earlier versions
+Adobe Animate 2024
+24.0 and earlier versions
+Francis Provencher (prl)
+13.0.5 and earlier versions
+14.0.1 and earlier versions
+March 12, 2024
+24.1 and earlier versions
+Lee Dong Ha (zeropointer_dongha)
+Version 2020 Update 2 and earlier versions
+Version 2020 Update 3
+Update 6 and earlier versions
+Update 12 and earlier versions
+Update 13
+Deserialization of Untrusted Data (
+March 12,
+Adobe has released updates for Adobe Lightroom for macOS as published in the Apple App Store.
+This update addresses a
+7.1.2 and earlier versions
+macOS as published in the Apple App Store.
+Adobe premiere pro
+Security Updates for Adobe Premiere Pro
+Security updates for Adobe Experience Manager
+Version 6.4
+Version 6.3
+Version 6.2
+Version 6.1
+Version 6.0
+Version 5.6
+Last update
+Version 21
+Version 20
+Version 16
+Version CC
+Version CS
+Security Updates for Adobe Lightroom
+Adobe Captivate Classic
+Adobe Connect 10.5 and later versions.
+- September 2022 release
+- December 2022 release
+RoboHelp Server 11
+September 2022 release
+It is mandatory to use TLS 1.2 for secure network communication and data exchange between users systems and Adobe apps and web services.
+Adobe has deprecated support for lower versions of TLS (including TLS 1.0 and 1.1).
+Upgrade your operating system or application to a version that supports TLS 1.2. Otherwise, you can lose access to this service.
+Windows Server
+Windows Desktop
+Application frameworks
+You can only engage with some Adobe apps and services through a secure network connection.
+TLS helps ensure that the connection between your browser and these apps and web services is secure and reliable.
+PCI compliance mandates the use of TLS 1.1 or higher as of May 2018.
+Most requests for Adobe apps and web services originate from TLS 1.2-compliant user systems, with low traffic from TLS 1.1 systems.
+For more information, contact Adobe Customer Care or your customer success manager.
+All browsers mentioned in the system requirements list for Adobe apps and services are configured to use TLS 1.2. If you are using a browser or version that does not figure in the list, update your browser.
+ie_error
+page_can_t_be_displayed
+TLS 1.2 is enabled on Internet Explorer 11 by default, but if it is turned off, you can turn it on.
+Unable to connect to the service
+Service not available
+Error in connection
+Windows 8, or later*
+14.0.1 and earlier versions
+The new mobile app is now available in
+What is the new Adobe Express mobile app?
+What is the new Adobe Express mobile app?
+For more information to regain access to your account, see
+To move from old licenses to new licenses in Adobe Connect, view
+What licenses do I need to migrate from Old to New licenses?
+Download Acrobat
+Improper Input Validation
+2.4.x release notes
+Security Updates for Magento
+Magento / Adobe Commerce
+Affected version
+16.4 and earlier versions
+Updated version
+Refer to this
+Memory leak
+Uncontrolled search path
+NULL Pointer Dereference
+Stack-based Buffer Overflow
+Illustrator 2020
+Privilege escalation
+Path Traversal
+Security Updates for Adobe Photoshop
+brief
+Photoshop 2021
+Creative Cloud (CC)
+Creative Suite (CS)
+Version 2021
+Version 2020
+Version CS6
+Version CS4
+Version CS2
+Security Updates for Adobe After Effects
+Security updates for Adobe Media Encoder
+Security Updates for Adobe InDesign
+April 9, 2024
+This update resolves a
+24.2.1 and earlier versions
+23.6.4 and earlier versions
+April 9, 2024
+2.4.7-beta3 and earlier
+2.4.7 for 2.4.7-beta3 and earlier
+ID18.5.1 and earlier version
+ID19.2 and earlier version.
+ID18.5.2
+ID19.3
+24.1 and earlier versions
+23.6.2 and earlier versions
+April 9,
+This update resolves an
+28.3 and earlier versions
+27.9.2 and earlier versions
+6.5.19 and earlier versions
+This update addresses an
+13.0.6 and earlier versions
+23.0.4 and earlier versions
+24.0.1 and earlier versions
+I want to upgrade my project.
+Update 3 is the latest version of RoboHelp (September 2022 release).
+This update introduces citation management, snippet categorization, publishing output to Atlassian Confluence, redesigned CSS editor, and customization of PDF output.
+In addition, this update contains bug fixes related to the template editor, authoring, publishing, and translation.
+To see the list of bug fixes, view the
+All Adobe background processes have an important role and help your apps to work smoothly.
+It handles issues in one component without affecting others, ensuring smooth operation.
+It also manages the notifications that Adobe servers send to your desktop apps.
+Adobe Content Synchronizer Helper is a macOS FinderSync Extension.
+It lets the Creative Cloud desktop app take predefined actions triggered by Creative Cloud apps or Adobe web pages.
+The native app support for iOS and Android is not available.
+To ensure a smooth experience, it's important to use the latest version of your chosen browser.
+If the screen doesn't load your image after you upload it to the Firefly web app, check if there's an update available for your browser.
+If the generated images appear with an error or are not viewable, reword your prompt and try again.
+Favorites are saved using your browser data, so they won't be available on another browser, in incognito mode, or if you clear your browser data.
+(Adobe Reader app is the free, trusted standard for viewing, printing, signing, and annotating PDFs.)
+Artist Hub
+Powerfully Playful: Adobe Stock Creative Trend
+Touch and Tactility: Shooting at camp with Mat Hayward
+Diverse Representation in Stock Content
+Adobe Stock Pinterest
+Adobe Stock Instagram
+Help with your free Adobe cloud storage membership
+How do I sign up for free Adobe cloud storage account and services?
+When you log in to Acrobat Reader or the Acrobat Reader mobile app with your Adobe ID, Document Cloud services will appear in your app.
+How does Adobe online help individuals who use free Acrobat Reader?
+Store and access files in Adobe online with 5GB of free storage.
+2024 Creative Trends
+Adobe Firefly FAQ for Adobe Stock contributors
+How to redeem the 2023 Creative Cloud app bonus code
+Upload your content directly from Adobe Lightroom, Lightroom Classic, and Adobe Bridge.
+If you are not using the web interface, but use the API to apply rights, you can activate the incremental save using the PDFUtilitySaveMode object.
+Learn how to use your social account (Facebook, Google, Apple, or Microsoft) to create your Adobe account.
+Learn how to use your social (Facebook, Google, Apple, or Microsoft) account to create your Adobe account.
+Sign in to your Adobe account with your Facebook, Google, Apple, or Microsoft account.
+Learn how to use your social account (Facebook, Google, Apple, Microsoft, or Line)
+You can use your Facebook, Google, Apple, Microsoft, or Line account to create your Adobe account.
+Later, you can sign in with your social account to manage your Adobe account.
+On the sign-in screen, choose Google, Facebook, Apple, Microsoft, or Line.
+Set your social account to sign-in.
+Enter your Google, Facebook, Apple, or Microsoft credentials.
+Personal details page while creating an account using a social account.
+For troubleshooting errors related to social sign-in, see Resolve errors related to
+CCXProcess OS Scheduler
+What is the Creative Cloud Content Manager?
+Imagine it as a bridge connecting you to a constantly evolving library of resources, all designed to enhance your creative journey.
+By understanding its operation and ensuring it runs unhindered, the Adobe Creative Cloud application can be empowered with a smoother, more productive creative workflow.
+This means it activates only when needed, reducing its impact on your system's performance.
+This dynamic approach ensures that resources are always fresh and aligned with current trends and software updates.
+These system tools allow the Creative Cloud Content Manager to perform updates and sync application resources at scheduled times, making sure you're not interrupted during your creative flow.
+This task is scheduled to run at specific times, ensuring that your Adobe applications remain current with the latest resources prior to launch.
+This file dictates when and how the Creative Cloud Content Manager should activate, following a schedule that optimizes resource updates without hindering your work.
+This process operates with user-level privileges, emphasizing Adobe's commitment to security and privacy.
+This step ensures that your antivirus or security software does not mistakenly block or restrict the Creative Cloud Content Manager's operations.
+Adding this job to your allow list prevents potential conflicts with security settings or software.
+The Creative Cloud Content Manager is a background process that supports Adobe Creative Cloud applications to provide dynamic content, including tutorials, stock templates, and filters.
+Resolve errors that occur when you sign in to your Adobe account with Facebook, Google, Apple, or Microsoft (social sign-in).
+Resolve errors that occur when you sign in to your Adobe account with Facebook, Google, Apple, Microsoft, or Line (social sign-in).
+Now, you are unable to sign in with your social account or don't have access to it anymore.
+Reset your password.
+You get this error if you have selected to
+Error could not connect
+If you have recently deleted an Adobe account linked to a social account (such as Google, Facebook, Apple, or Microsoft), you cannot create a new Adobe account with another social account that uses the same email address for 30 days.
+Select your social account (Google, Facebook, Apple, or Microsoft) to sign in.
+Social account to sign in.
+Enter the password
+Enter your Google, Facebook, Apple, Microsoft, or Line credentials.
+Update 4 is the latest version of RoboHelp (September 2022 release).
+To view the list of bug fixes, visit the
+Under the Password section, select Change for Current Password, and then follow the onscreen instructions.
+To fix the payment issue, select
+If your payment method isn’t current, update your credit card information in and select
+If you aren’t using the latest version of your Creative Cloud app, you see an update prompt next to its name.
+This could be because of an incorrectly configured operating system hosts file (operating system hosts files map host names to IP addresses).
+You can remove the Adobe-related entries from the hosts file in two ways:
+Sign out and then sign in
+Remove entries in the hosts file
+You can also manage your subscription and view the apps included in your plan in this window.
+Select Sign Out.
+The Account menu showing options such as Preferences, Sign out, and monthly generative credits for Gen AI features.
+Selecting Sign out logs you out of all Creative Cloud apps.
+Select Check for updates.
+The expanded menu showing options to Manage autro-updates, Check for updates, and Update all apps.
+The expanded menu also allows you to enable auto update and update all apps.
+To solve this issue, try removing Adobe-related entries from the hosts file.
+1.12 (HTML), 3.0.2(Flex)
+Windows 11
+Out-of-bounds write
+Security update available for Adobe Dreamweaver
+Adobe Dreamweaver
+Adobe categorizes this update with the following
+Windows and macOS
