@@ -151,7 +151,7 @@ def train_model(model, tokenizer, dataset, output_directory,
         bf16=True,
         lr_scheduler_type=lr_scheduler_type,                  # Updated
         load_best_model_at_end=True,                          # For early stopping
-        metric_for_best_model="eval_loss",                    # Or use a custom metric
+        metric_for_best_model="eval_loss",                    # Or we can use COMET which is returned by the obkective function in the Runner.py
         greater_is_better=False,
     )
 
