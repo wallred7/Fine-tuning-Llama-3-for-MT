@@ -14,8 +14,10 @@ from datetime import datetime
 
 
 
-def train(train_file, eval_file, target_language, run_name, num_train_records=-1):
-
+def train(train_file, eval_file, target_language, run_name,
+          learning_rate, num_train_epochs, lr_scheduler_type,
+          per_device_train_batch_size, lora_dropout, lora_rank):
+            
     source_train_file = f'{target_language}_train_dataset.{settings.source_lang_abrv}'
     source_eval_file = f'{target_language}_eval_dataset.{settings.source_lang_abrv}'
     source_train_path = os.path.join(settings.training_data_path, source_train_file)
@@ -52,7 +54,11 @@ def train(train_file, eval_file, target_language, run_name, num_train_records=-1
     adapter_path = os.path.join(settings.adapter_path, run_name)
     # os.makedirs(adapter_path, exist_ok=True)
 
-    trainer = train_model(model, tokenizer, dataset, adapter_path)
+    trainer = train_model(
+        model, tokenizer, dataset, adapter_path,
+        learning_rate, num_train_epochs, lr_scheduler_type,
+        per_device_train_batch_size, lora_dropout, lora_rank
+    )
     log_training(trainer, adapter_path)
 
     return adapter_path
