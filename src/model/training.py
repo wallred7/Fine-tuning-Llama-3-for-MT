@@ -5,6 +5,7 @@ from torch.nn.parallel import DataParallel
 from datasets import Dataset, DatasetDict, load_dataset
 from transformers import (AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig,
                           TrainingArguments, Trainer)
+from transformers import EarlyStoppingCallback
 from peft import (LoraConfig, get_peft_model,
                   prepare_model_for_kbit_training)
 from trl import SFTTrainer
@@ -117,11 +118,13 @@ def add_special_tokens(model, tokenizer):
 
     return model, tokenizer
 
-def train_model(model, tokenizer, dataset, output_directory):
+def train_model(model, tokenizer, dataset, output_directory,
+                learning_rate, num_train_epochs, lr_scheduler_type,
+                per_device_train_batch_size, lora_dropout, lora_rank):
     peft_config = LoraConfig(
         lora_alpha=16,
-        lora_dropout=0.1,
-        r=64,
+        lora_dropout=lora_dropout,  # Updated
+        r=lora_rank,                # Updated
         bias="none",
         task_type="CAUSAL_LM"
     )
@@ -131,30 +134,32 @@ def train_model(model, tokenizer, dataset, output_directory):
 
     training_args = TrainingArguments(
         output_dir=output_directory,
-        num_train_epochs=1,
-        per_device_train_batch_size=32,
-        per_device_eval_batch_size=32,
-        warmup_steps=0.03,
+        num_train_epochs=num_train_epochs,                    # Updated
+        per_device_train_batch_size=per_device_train_batch_size,  # Updated
+        per_device_eval_batch_size=per_device_train_batch_size,
+        warmup_ratio=0.01,                                    # Use warmup ratio
         logging_steps=100,
         save_strategy="epoch",
-        evaluation_strategy="steps",
-        eval_steps=1000,
-        learning_rate=2e-3,
+        evaluation_strategy="epoch",                          # Updated
+        learning_rate=learning_rate,                          # Updated
         bf16=True,
-        lr_scheduler_type='constant',
+        lr_scheduler_type=lr_scheduler_type,                  # Updated
+        load_best_model_at_end=True,                          # For early stopping
+        metric_for_best_model="eval_loss",                    # Or use a custom metric
+        greater_is_better=False,
     )
 
-
     trainer = SFTTrainer(
-                    model=model,
-                    peft_config=peft_config,
-                    tokenizer=tokenizer,
-                    packing=True,
-                    dataset_text_field="text",
-                    args=training_args,
-                    train_dataset=dataset["train"],
-                    eval_dataset=dataset["validation"],
-                  )
+        model=model,
+        peft_config=peft_config,
+        tokenizer=tokenizer,
+        packing=True,
+        dataset_text_field="text",
+        args=training_args,
+        train_dataset=dataset["train"],
+        eval_dataset=dataset["validation"],
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=1)],  # Early stopping
+    )
 
     trainer.train()
 
