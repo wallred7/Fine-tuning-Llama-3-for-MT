@@ -10,21 +10,24 @@ from peft import (LoraConfig, get_peft_model,
 from trl import SFTTrainer
 from config.config import settings
 from datetime import datetime
+from model.collection import load_translations_file
 
 
 
 def train(train_file, eval_file, target_language, run_name, num_train_records=-1):
 
-    source_train_file = f'{target_language}_train_dataset.{settings.source_lang_abrv}'
-    source_eval_file = f'{target_language}_eval_dataset.{settings.source_lang_abrv}'
-    source_train_path = os.path.join(settings.training_data_path, source_train_file)
-    source_eval_path = os.path.join(settings.training_data_path, source_eval_file)
+    source_train_file = os.path.join(settings.training_data_path
+                                     , f'{target_language}_train_dataset.{settings.source_lang_abrv}')
+    source_eval_file = os.path.join(settings.training_data_path
+                                     , f'{target_language}_eval_dataset.{settings.source_lang_abrv}')
+    target_train_file = train_file #os.path.join(settings.training_data_path, train_file)
+    target_eval_file = eval_file #os.path.join(settings.training_data_path, eval_file)
 
 
-    target_train_sentences = load_dataset('text', data_files={'train': train_file}, split='train')
-    source_train_sentences = load_dataset('text', data_files={'train': source_train_path}, split='train')
-    target_eval_sentences = load_dataset('text', data_files={'validation': eval_file}, split='validation')
-    source_eval_sentences = load_dataset('text', data_files={'validation': source_eval_path}, split='validation')
+    target_train_sentences = load_translations_file(target_train_file) #load_dataset('text', data_files={'train': train_file}, split='train')
+    source_train_sentences = load_translations_file(source_train_file) #load_dataset('text', data_files={'train': source_train_path}, split='train')
+    target_eval_sentences = load_translations_file(target_eval_file) #load_dataset('text', data_files={'validation': eval_file}, split='validation')
+    source_eval_sentences = load_translations_file(source_eval_file) #load_dataset('text', data_files={'validation': source_eval_path}, split='validation')
 
     source_lang = settings.source_language
 
@@ -78,7 +81,7 @@ def prepare_dataset(prompts, eval_prompts, num_train_records):
         "validation": Dataset.from_dict({"text": eval_prompts})
     })
 
-def load_model(model_name, tokenizer):
+def load_model(model_name):
     nf4_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
@@ -90,7 +93,11 @@ def load_model(model_name, tokenizer):
         model_name,
         device_map='auto',
         quantization_config=nf4_config,
-        use_cache=False
+        use_cache=False,
+        #rope_scaling={
+        #    "type": "dynamic",
+        #    "factor": 8.0
+        #}
     )
 
     return model
